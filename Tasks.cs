@@ -20,12 +20,5 @@ namespace ManagerList.TaskItem
             DueDate = dueDate;
             Status = status;
         }
-
-        // public enum Estatus
-        // {
-        //     NotStarted = 0,
-        //     InProgress = 1,
-        //     Completed = 2
-        // }
     }
 }
