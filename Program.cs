@@ -9,9 +9,10 @@ namespace ManagerList
         static void Main(string[] args)
         {
             var taskList = new List<Tasks>();
-            taskList.Add(new Tasks("Task 1", "DESCRIPTION 1", DateTime.Now, EStatus.NotStarted));
-            taskList.Add(new Tasks("Task 2", "DESCRIPTION 2", DateTime.Now.AddDays(10), EStatus.InProgress));
-            taskList.Add(new Tasks("Task 3", "DESCRIPTION 3", DateTime.Now.AddDays(7), EStatus.Completed));
+            taskList.Add(new Tasks("Task 1", "Description 1", DateTime.Now, EStatus.NotStarted));
+            taskList.Add(new Tasks("Task 2", "Description 2", DateTime.Now.AddDays(10), EStatus.InProgress));
+            taskList.Add(new Tasks("Task 2", "Description 3", DateTime.Now.AddDays(10), EStatus.InProgress));
+            taskList.Add(new Tasks("Task 3", "Description 4", DateTime.Now.AddDays(7), EStatus.Completed));
 
             while (true)
             {
