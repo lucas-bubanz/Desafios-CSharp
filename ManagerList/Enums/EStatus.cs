@@ -1,6 +1,4 @@
-using ManagerList.TaskItem;
-
-namespace ManagerList.TaskItem
+namespace ManagerList.Enums
 {
     public enum EStatus
     {

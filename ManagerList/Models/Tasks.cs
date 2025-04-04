@@ -1,8 +1,7 @@
 using System;
-using System.Collections.Generic;
-// using ManagerList.TaskItems;
+using ManagerList.Enums;
 
-namespace ManagerList.TaskItem
+namespace ManagerList.Models
 {
     public class Tasks
     {
