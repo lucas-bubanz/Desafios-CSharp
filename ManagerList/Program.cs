@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
-using ManagerList.TaskItem;
-using ManagerList.ManagerTask;
+using ManagerList.Models;
+using ManagerList.Services;
+using ManagerList.Enums;
 
 namespace ManagerList
 {
@@ -10,12 +11,11 @@ namespace ManagerList
         static void Main(string[] args)
         {
             var taskList = new List<Tasks>();
-            var managerTask = new ManagerTask.ManagerTask();
+            var managerTask = new ManagerTask();
 
             taskList.Add(new Tasks("Task 1", "Description 1", DateTime.Now, EStatus.NotStarted));
             taskList.Add(new Tasks("Task 2", "Description 2", DateTime.Now.AddDays(10), EStatus.InProgress));
-            taskList.Add(new Tasks("Task 2", "Description 3", DateTime.Now.AddDays(10), EStatus.InProgress));
-            taskList.Add(new Tasks("Task 3", "Description 4", DateTime.Now.AddDays(7), EStatus.Completed));
+            taskList.Add(new Tasks("Task 3", "Description 3", DateTime.Now.AddDays(7), EStatus.Completed));
 
             while (true)
             {
@@ -27,7 +27,6 @@ namespace ManagerList
                 Console.Write("Choose an option: ");
 
                 string? option = Console.ReadLine();
-                // Console.Clear();
                 switch (option)
                 {
                     case "1": managerTask.AddToTask(taskList); break;

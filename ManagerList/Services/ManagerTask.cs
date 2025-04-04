@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
-using ManagerList.TaskItem;
+using ManagerList.Models;
+using ManagerList.Enums;
 
-namespace ManagerList.ManagerTask
+namespace ManagerList.Services
 {
     public class ManagerTask
     {
@@ -33,7 +34,7 @@ namespace ManagerList.ManagerTask
             Console.Write("Term (dd/MM/yyyy): ");
             DateTime dueDate = DateTime.Parse(Console.ReadLine() ?? string.Empty);
 
-            EStatus status = EStatus.NotStarted; // Definindo o status padrão como "Não Começou".
+            EStatus status = EStatus.NotStarted;
 
             var newTask = new Tasks(taskName, taskDescription, dueDate, status);
             taskList.Add(newTask);
@@ -44,7 +45,6 @@ namespace ManagerList.ManagerTask
             Console.Write("ID of the Task to be edited or digit 'S' for go out: ");
             string taskId = Console.ReadLine() ?? string.Empty;
 
-            // Encontrar a tarefa pelo ID
             var taskFound = taskList.Find(t => t.Id == taskId);
             if (taskId.ToUpper() == "S")
             {
@@ -102,7 +102,6 @@ namespace ManagerList.ManagerTask
             Console.Write("Task ID to be deleted: ");
             string taskId = Console.ReadLine() ?? string.Empty;
 
-            // Encontrar a tarefa pelo ID
             var taskFound = taskList.Find(t => t.Id == taskId);
             if (taskFound == null)
             {
