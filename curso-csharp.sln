@@ -5,8 +5,9 @@ VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagerList", "ManagerList\ManagerList.csproj", "{0A48C5AB-A1C4-ED6E-AE4A-E910E22940D3}"
 EndProject
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculadora", "Calculadora\Calculadora\Calculadora.csproj", "{9F7CFD30-8C6C-4990-931D-FC6EF99D5A3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaDeContatos", "AgendaDeContatos\AgendaDeContatos.csproj", "{5062E197-1E79-4AAD-88D4-56321150F025}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,6 +23,10 @@ Global
 		{9F7CFD30-8C6C-4990-931D-FC6EF99D5A3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F7CFD30-8C6C-4990-931D-FC6EF99D5A3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F7CFD30-8C6C-4990-931D-FC6EF99D5A3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5062E197-1E79-4AAD-88D4-56321150F025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5062E197-1E79-4AAD-88D4-56321150F025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5062E197-1E79-4AAD-88D4-56321150F025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5062E197-1E79-4AAD-88D4-56321150F025}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
