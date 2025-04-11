@@ -5,7 +5,6 @@ VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagerList", "ManagerList\ManagerList.csproj", "{0A48C5AB-A1C4-ED6E-AE4A-E910E22940D3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Calculadora", "Calculadora", "{AB958EEB-617A-4BA4-890F-FC071024D7E7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculadora", "Calculadora\Calculadora\Calculadora.csproj", "{9F7CFD30-8C6C-4990-931D-FC6EF99D5A3D}"
 EndProject
