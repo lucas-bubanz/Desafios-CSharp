@@ -5,8 +5,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagerList", "ManagerList\ManagerList.csproj", "{0A48C5AB-A1C4-ED6E-AE4A-E910E22940D3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bank", "Bank", "{E6F91B11-F427-4410-9169-C04F95F72307}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagerBank", "Bank\ManagerBank\ManagerBank.csproj", "{22F439F9-BDB4-48CC-ADB1-722E97E39562}"
+EndProjects
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
