@@ -1,6 +1,4 @@
-﻿using System;
-using Calculadora.Services.Menu;
-using Calculadora.Interface.IOperacoesMatematicas;
+﻿using Calculadora.Services.Menu;
 
 namespace Calculadora
 {
