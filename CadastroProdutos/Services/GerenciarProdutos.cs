@@ -71,7 +71,7 @@ namespace CadastroProdutos.Services.GerenciadorProdutos
             }
             while (true)
             {
-                Console.WriteLine($"Escolha o que deseja atualizar no produto {produtoEncontrado.NomedoProduto}:");
+                Console.WriteLine($"Escolha o que deseja atualizar no produto '{produtoEncontrado.NomedoProduto}':");
                 Console.WriteLine("1 - Nome do Produto");
                 Console.WriteLine("2 - Descrição do Produto");
                 Console.WriteLine("3 - Tipo do Produto");
@@ -101,17 +101,24 @@ namespace CadastroProdutos.Services.GerenciadorProdutos
                         Console.Write("Digite o novo valor do produto: ");
                         if (double.TryParse(Console.ReadLine(), out double novoValor))
                         {
-                            Console.WriteLine("Manter a mesma taxa ou atualizar? ");
+                            Console.WriteLine("Manter a mesma taxa? ");
                             Console.WriteLine("[S] - Sim | [N] - Não ");
                             var escolha = Console.ReadLine();
 
-                            // if (String.CompareOrdinal(string escolha))
-                            // {
-
-                            // }
-
-                            produtoEncontrado.ValorProduto = novoValor;
-                            Console.WriteLine("Valor do produto atualizado com sucesso!");
+                            if (escolha.Equals("S", StringComparison.CurrentCultureIgnoreCase))
+                            {
+                                produtoEncontrado.ValorProduto = novoValor;
+                                Console.WriteLine("Valor do produto atualizado com sucesso!");
+                                Console.Write("Mantendo a mesma taxa.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Qual o valor da nova taxa: ");
+                                double ValorDaTaxa = double.Parse(Console.ReadLine());
+                                double valorAtualizadoComTaxa = TaxaSobTipoDeProduto(novoValor, ValorDaTaxa);
+                                produtoEncontrado.ValorProduto = valorAtualizadoComTaxa;
+                                Console.WriteLine("Valor do produto atualizado com a nova taxa!");
+                            }
                         }
                         else
                         {

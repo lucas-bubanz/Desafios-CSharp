@@ -28,7 +28,7 @@ namespace CadastroProdutos.Menu
                 Console.WriteLine("</=================================================/>");
                 Console.Write("Opção: ");
                 var opcao = Console.ReadLine();
-                Console.Clear();
+                // Console.Clear();
 
                 switch (opcao)
                 {
