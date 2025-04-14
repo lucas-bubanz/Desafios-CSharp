@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculadora", "Calculadora\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaDeContatos", "AgendaDeContatos\AgendaDeContatos.csproj", "{5062E197-1E79-4AAD-88D4-56321150F025}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastroProdutos", "CadastroProdutos\CadastroProdutos.csproj", "{9C883135-A6F2-487B-8EF4-B5F6B1962A00}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5062E197-1E79-4AAD-88D4-56321150F025}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5062E197-1E79-4AAD-88D4-56321150F025}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5062E197-1E79-4AAD-88D4-56321150F025}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C883135-A6F2-487B-8EF4-B5F6B1962A00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C883135-A6F2-487B-8EF4-B5F6B1962A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C883135-A6F2-487B-8EF4-B5F6B1962A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C883135-A6F2-487B-8EF4-B5F6B1962A00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
