@@ -105,7 +105,7 @@ namespace CadastroProdutos.Services.GerenciadorProdutos
                             Console.WriteLine("[S] - Sim | [N] - Não ");
                             var escolha = Console.ReadLine();
 
-                            if (escolha.Equals("s", StringComparison.CurrentCultureIgnoreCase))
+                            if (escolha.Equals("S", StringComparison.CurrentCultureIgnoreCase))
                             {
                                 produtoEncontrado.ValorProduto = novoValor;
                                 Console.WriteLine("Valor do produto atualizado com sucesso!");
