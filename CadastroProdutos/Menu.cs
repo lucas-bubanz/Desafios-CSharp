@@ -1,12 +1,21 @@
 using CadastroProdutos.Services.OperacoesMenu;
+using CadastroProdutos.Services.GerenciadorProdutos;
 using CadastroProdutos.Enums.TipoDoProduto;
+using CadastroProdutos.Models.Produtos;
 namespace CadastroProdutos.Menu
 {
     public class Menu
     {
+        private readonly GerenciarProdutos _gerenciarProdutos;
+        private readonly OperacoesMenu _operacoesMenu;
+
+        public Menu()
+        {
+            _gerenciarProdutos = new GerenciarProdutos();
+            _operacoesMenu = new OperacoesMenu(_gerenciarProdutos);
+        }
         public void ExecutarMenu()
         {
-            var operacoesMenu = new OperacoesMenu();
             while (true)
             {
                 Console.WriteLine("Seja Bem Vindo ao Sistema de Cadastro para Produtos.");
@@ -14,13 +23,12 @@ namespace CadastroProdutos.Menu
                 Console.WriteLine("[1] | Adicionar.");
                 Console.WriteLine("[2] | Listar.");
                 Console.WriteLine("[3] | Remover.");
-                Console.WriteLine("[4] | Buscar pelo Nome.");
-                Console.WriteLine("[5] | Buscar pelo Serviço.");
-                Console.WriteLine("[6] | Ordenar Produtos.");
-                Console.WriteLine("[7] | Sair.");
+                Console.WriteLine("[4] | Atualizar.");
+                Console.WriteLine("[5] | Sair.");
                 Console.WriteLine("</=================================================/>");
                 Console.Write("Opção: ");
                 var opcao = Console.ReadLine();
+                Console.Clear();
 
                 switch (opcao)
                 {
@@ -33,19 +41,22 @@ namespace CadastroProdutos.Menu
                         var TipoDoProduto = Enum.Parse<ETipoDoProduto>(Console.ReadLine());
                         Console.WriteLine("Informe o Valor do Produto: ");
                         var ValorProduto = double.Parse(Console.ReadLine());
-                        operacoesMenu.CadastrarProduto(NomedoProduto, DescricaoDoProduto, TipoDoProduto, ValorProduto);
+                        _operacoesMenu.CadastrarProduto(NomedoProduto, DescricaoDoProduto, TipoDoProduto, ValorProduto);
                         break;
                     case "2":
+                        _gerenciarProdutos.ListarProdutos();
                         break;
                     case "3":
+                        Console.Write("Para [remover] um produto, por favor indique o código do mesmo: ");
+                        var idProduto = Console.ReadLine();
+                        _gerenciarProdutos.RemoverProdutos(idProduto);
                         break;
                     case "4":
+                        Console.Write("Para [atualizar] um produto, por favor indique o código do mesmo: ");
+                        var idProdutoAtualizar = Console.ReadLine();
+                        _gerenciarProdutos.AtualizarProdutos(idProdutoAtualizar);
                         break;
                     case "5":
-                        break;
-                    case "6":
-                        break;
-                    case "7":
                         return;
                     default:
                         Console.WriteLine("Opção inválida. Por favor, tente novamente.");

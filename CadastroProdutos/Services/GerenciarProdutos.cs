@@ -24,5 +24,109 @@ namespace CadastroProdutos.Services.GerenciadorProdutos
             Console.WriteLine("Produto Cadastrado com Sucesso");
         }
 
+        public void ListarProdutos()
+        {
+            if (_ListaDeProdutos.Count == 0)
+            {
+                Console.WriteLine("Não há produtos cadastrados.");
+                return;
+            }
+            Console.WriteLine("<=== Lista de Produtos Cadastrados ===>");
+            foreach (var produto in _ListaDeProdutos)
+            {
+                if (_ListaDeProdutos.Count == 0)
+                {
+                    Console.WriteLine("Não há produtos cadastrados.");
+                    return;
+                }
+                Console.WriteLine($"Código do Produto: {produto.CodigoDoProduto}");
+                Console.WriteLine($"Nome do Produto: {produto.NomedoProduto}");
+                Console.WriteLine($"Descrição do Produto: {produto.DescricaoDoProduto}");
+                Console.WriteLine($"Tipo do Produto: {produto.TipoDoProduto}");
+                Console.WriteLine($"Valor do Produto: {produto.ValorProduto:C}");
+                Console.WriteLine("<|=======================================================|>");
+            }
+        }
+
+        public void RemoverProdutos(string idProduto)
+        {
+            var produtoEncontrado = _ListaDeProdutos.FirstOrDefault(id => id.CodigoDoProduto.Equals(idProduto));
+            if (produtoEncontrado == null)
+            {
+                Console.WriteLine("Produto não encontrado pelo ID fornecido.");
+                return;
+            }
+
+            _ListaDeProdutos.Remove(produtoEncontrado);
+            Console.WriteLine("Produto removido com sucesso!");
+        }
+
+        public void AtualizarProdutos(string idProdutoAtualizar)
+        {
+            var produtoEncontrado = _ListaDeProdutos.FirstOrDefault(id => id.CodigoDoProduto.Equals(idProdutoAtualizar));
+            if (produtoEncontrado == null)
+            {
+                Console.WriteLine("Produto não encontrado pelo ID fornecido.");
+                return;
+            }
+            while (true)
+            {
+                Console.WriteLine($"Escolha o que deseja atualizar no produto {produtoEncontrado.NomedoProduto}:");
+                Console.WriteLine("1 - Nome do Produto");
+                Console.WriteLine("2 - Descrição do Produto");
+                Console.WriteLine("3 - Tipo do Produto");
+                Console.WriteLine("4 - Valor do Produto");
+                Console.WriteLine("0 - Sair");
+                Console.Write("Digite a opção desejada: ");
+                var opcao = Console.ReadLine();
+
+                switch (opcao)
+                {
+                    case "1":
+                        Console.Write("Digite o novo nome do produto: ");
+                        produtoEncontrado.NomedoProduto = Console.ReadLine();
+                        Console.WriteLine("Nome do produto atualizado com sucesso!");
+                        break;
+                    case "2":
+                        Console.Write("Digite a nova descrição do produto: ");
+                        produtoEncontrado.DescricaoDoProduto = Console.ReadLine();
+                        Console.WriteLine("Descrição do produto atualizada com sucesso!");
+                        break;
+                    case "3":
+                        Console.Write("Digite o novo tipo do produto [Servico], [Construcao], [Domestico], [Eletronico]: ");
+                        produtoEncontrado.TipoDoProduto = Enum.Parse<ETipoDoProduto>(Console.ReadLine());
+                        Console.WriteLine("Tipo do produto atualizado com sucesso!");
+                        break;
+                    case "4":
+                        Console.Write("Digite o novo valor do produto: ");
+                        if (double.TryParse(Console.ReadLine(), out double novoValor))
+                        {
+                            Console.WriteLine("Manter a mesma taxa ou atualizar? ");
+                            Console.WriteLine("[S] - Sim | [N] - Não ");
+                            var escolha = Console.ReadLine();
+
+                            // if (String.CompareOrdinal(string escolha))
+                            // {
+
+                            // }
+
+                            produtoEncontrado.ValorProduto = novoValor;
+                            Console.WriteLine("Valor do produto atualizado com sucesso!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Valor inválido. Atualização não realizada.");
+                        }
+                        break;
+                    case "0":
+                        Console.WriteLine("Saindo do menu de atualização.");
+                        return;
+                    default:
+                        Console.WriteLine("Opção inválida. Tente novamente.");
+                        break;
+                }
+            }
+        }
+
     }
 }
