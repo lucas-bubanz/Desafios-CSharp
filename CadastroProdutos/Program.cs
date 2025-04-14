@@ -1,2 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using CadastroProdutos.Services.OperacoesMenu;
+using CadastroProdutos.Menu;
+class Program
+{
+    public static void Main()
+    {
+        var menu = new Menu();
+        menu.ExecutarMenu();
+    }
+}
