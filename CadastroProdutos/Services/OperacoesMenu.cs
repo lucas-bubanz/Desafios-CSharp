@@ -15,7 +15,7 @@ namespace CadastroProdutos.Services.OperacoesMenu
             _gerenciarProdutos = gerenciarProdutos;
         }
         public void CadastrarProduto(string NomedoProduto, string DescricaoDoProduto, ETipoDoProduto TipoDoProduto, double ValorProduto)
-        {
+        {            
             produto = new Produtos
             {
                 NomedoProduto = NomedoProduto,
