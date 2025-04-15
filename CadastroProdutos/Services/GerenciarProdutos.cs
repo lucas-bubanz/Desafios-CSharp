@@ -65,17 +65,26 @@ namespace CadastroProdutos.Services.GerenciadorProdutos
 
                             if (escolha.Equals("S", StringComparison.CurrentCultureIgnoreCase))
                             {
-                                produtoEncontrado.ValorProduto = novoValor;
+                                double TaxaOriginalProduto = TaxaSobTipoDeProduto(novoValor, produtoEncontrado.TaxaProduto);
+                                produtoEncontrado.ValorProduto = TaxaOriginalProduto;
                                 Console.WriteLine("Valor do produto atualizado com sucesso!");
                                 Console.Write("Mantendo a mesma taxa.");
                             }
                             else
                             {
                                 Console.WriteLine("Qual o valor da nova taxa: ");
-                                double ValorDaTaxa = double.Parse(Console.ReadLine());
-                                double valorAtualizadoComTaxa = TaxaSobTipoDeProduto(novoValor, ValorDaTaxa);
-                                produtoEncontrado.ValorProduto = valorAtualizadoComTaxa;
-                                Console.WriteLine("Valor do produto atualizado com a nova taxa!");
+                                if (double.TryParse(Console.ReadLine(), out double novaTaxa))
+                                {
+                                    double valorAtualizadoComTaxa = TaxaSobTipoDeProduto(novoValor, novaTaxa);
+                                    produtoEncontrado.ValorProduto = valorAtualizadoComTaxa;
+                                    produtoEncontrado.TaxaProduto = novaTaxa; // Atualiza a taxa do produto
+                                    Console.WriteLine("Valor do produto atualizado com a nova taxa!");
+                                    Console.WriteLine($"Nova taxa definida: {novaTaxa:P}");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Taxa inválida. Operação cancelada.");
+                                }
                             }
                         }
                         else

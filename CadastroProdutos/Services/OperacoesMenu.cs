@@ -14,14 +14,15 @@ namespace CadastroProdutos.Services.OperacoesMenu
         {
             _gerenciarProdutos = gerenciarProdutos;
         }
-        public void CadastrarProduto(string NomedoProduto, string DescricaoDoProduto, ETipoDoProduto TipoDoProduto, double ValorProduto)
+        public void CadastrarProduto(string NomedoProduto, string DescricaoDoProduto, ETipoDoProduto TipoDoProduto, double ValorProduto, double TaxaProduto)
         {
             produto = new Produtos
             {
                 NomedoProduto = NomedoProduto,
                 DescricaoDoProduto = DescricaoDoProduto,
                 TipoDoProduto = TipoDoProduto,
-                ValorProduto = ValorProduto
+                ValorProduto = ValorProduto,
+                TaxaProduto = TaxaProduto
             };
             if (produto.TipoDoProduto == ETipoDoProduto.Eletronico)
             {
@@ -37,7 +38,8 @@ namespace CadastroProdutos.Services.OperacoesMenu
             }
             else if (produto.TipoDoProduto == ETipoDoProduto.Servico)
             {
-                var novoValorProdutoComTaxa = _gerenciarProdutos.TaxaSobTipoDeProduto(produto.ValorProduto, 0.2);
+                produto.TaxaProduto = 0.2;
+                var novoValorProdutoComTaxa = _gerenciarProdutos.TaxaSobTipoDeProduto(produto.ValorProduto, produto.TaxaProduto);
                 produto.ValorProduto = novoValorProdutoComTaxa;
                 _gerenciarProdutos.AdicionaProduto(produto);
             }

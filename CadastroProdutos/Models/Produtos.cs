@@ -9,5 +9,6 @@ namespace CadastroProdutos.Models.Produtos
         public string DescricaoDoProduto { get; set; }
         public ETipoDoProduto TipoDoProduto { get; set; }
         public double ValorProduto { get; set; }
+        public double TaxaProduto { get; set; }
     }
 }

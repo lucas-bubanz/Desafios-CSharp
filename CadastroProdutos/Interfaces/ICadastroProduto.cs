@@ -7,6 +7,8 @@ namespace CadastroProdutos.Interfaces
         void CadastrarProduto(string nomeDoProduto,
                              string descricaoDoProduto,
                              ETipoDoProduto tipoDoProduto,
-                             double valorProduto);
+                             double valorProduto,
+                             double TaxaProduto)
+                             ;
     }
 }

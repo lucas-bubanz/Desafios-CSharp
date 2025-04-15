@@ -29,11 +29,12 @@ namespace CadastroProdutos.Menu
                 Console.WriteLine("</=================================================/>");
                 Console.Write("Opção: ");
                 var opcao = Console.ReadLine();
-                Console.Clear();
+                // Console.Clear();
 
                 switch (opcao)
                 {
                     case "1":
+                        double TaxaProduto = 0;
                         Console.WriteLine("Informe o Nome do Produto: ");
                         var NomedoProduto = Console.ReadLine();
                         Console.WriteLine("Informe a Descrição do Produto: ");
@@ -42,7 +43,7 @@ namespace CadastroProdutos.Menu
                         var TipoDoProduto = Enum.Parse<ETipoDoProduto>(Console.ReadLine());
                         Console.WriteLine("Informe o Valor do Produto: ");
                         var ValorProduto = double.Parse(Console.ReadLine());
-                        _operacoesMenu.CadastrarProduto(NomedoProduto, DescricaoDoProduto, TipoDoProduto, ValorProduto);
+                        _operacoesMenu.CadastrarProduto(NomedoProduto, DescricaoDoProduto, TipoDoProduto, ValorProduto, TaxaProduto);
                         break;
                     case "2":
                         _gerenciarProdutos.ListarProdutos();
