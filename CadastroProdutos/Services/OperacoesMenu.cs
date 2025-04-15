@@ -26,13 +26,15 @@ namespace CadastroProdutos.Services.OperacoesMenu
             };
             if (produto.TipoDoProduto == ETipoDoProduto.Eletronico)
             {
-                var novoValorProdutoComTaxa = _gerenciarProdutos.TaxaSobTipoDeProduto(produto.ValorProduto, 0.1);
+                produto.TaxaProduto = 0.1;
+                var novoValorProdutoComTaxa = _gerenciarProdutos.TaxaSobTipoDeProduto(produto.ValorProduto, produto.TaxaProduto);
                 produto.ValorProduto = novoValorProdutoComTaxa;
                 _gerenciarProdutos.AdicionaProduto(produto);
             }
             else if (produto.TipoDoProduto == ETipoDoProduto.Domestico)
             {
-                var novoValorProdutoComTaxa = _gerenciarProdutos.TaxaSobTipoDeProduto(produto.ValorProduto, 0.05);
+                produto.TaxaProduto = 0.05;
+                var novoValorProdutoComTaxa = _gerenciarProdutos.TaxaSobTipoDeProduto(produto.ValorProduto, produto.TaxaProduto);
                 produto.ValorProduto = novoValorProdutoComTaxa;
                 _gerenciarProdutos.AdicionaProduto(produto);
             }
@@ -45,7 +47,8 @@ namespace CadastroProdutos.Services.OperacoesMenu
             }
             else if (produto.TipoDoProduto == ETipoDoProduto.Construcao)
             {
-                var novoValorProdutoComTaxa = _gerenciarProdutos.TaxaSobTipoDeProduto(produto.ValorProduto, 0.3);
+                produto.TaxaProduto = 0.3;
+                var novoValorProdutoComTaxa = _gerenciarProdutos.TaxaSobTipoDeProduto(produto.ValorProduto, produto.TaxaProduto);
                 produto.ValorProduto = novoValorProdutoComTaxa;
                 _gerenciarProdutos.AdicionaProduto(produto);
             }
