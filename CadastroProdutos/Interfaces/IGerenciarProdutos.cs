@@ -6,6 +6,6 @@ namespace CadastroProdutos.Interfaces
         void ListarProdutos();
         void RemoverProdutos(string idProduto);
         void AtualizarProdutos(string idProdutoAtualizar);
-        // double TaxaSobTipoDeProduto(double valorProduto, double valorDaTaxa);
+        double TaxaSobTipoDeProduto(double valorProduto, double valorDaTaxa);
     }
 }

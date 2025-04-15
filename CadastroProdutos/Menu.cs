@@ -1,13 +1,14 @@
 using CadastroProdutos.Services.OperacoesMenu;
 using CadastroProdutos.Services.GerenciadorProdutos;
 using CadastroProdutos.Enums.TipoDoProduto;
-using CadastroProdutos.Models.Produtos;
+using CadastroProdutos.Interfaces;
+
 namespace CadastroProdutos.Menu
 {
     public class Menu
     {
-        private readonly GerenciarProdutos _gerenciarProdutos;
-        private readonly OperacoesMenu _operacoesMenu;
+        private readonly IGerenciarProdutos _gerenciarProdutos;
+        private readonly ICadastroProduto _operacoesMenu;
 
         public Menu()
         {
@@ -28,7 +29,7 @@ namespace CadastroProdutos.Menu
                 Console.WriteLine("</=================================================/>");
                 Console.Write("Opção: ");
                 var opcao = Console.ReadLine();
-                // Console.Clear();
+                Console.Clear();
 
                 switch (opcao)
                 {

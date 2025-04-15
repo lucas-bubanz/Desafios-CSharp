@@ -1,21 +1,21 @@
 using CadastroProdutos.Models.Produtos;
-using CadastroProdutos.Services.GerenciadorProdutos;
 using CadastroProdutos.Enums.TipoDoProduto;
+using CadastroProdutos.Interfaces;
 
 namespace CadastroProdutos.Services.OperacoesMenu
 {
 
-    public class OperacoesMenu
+    public class OperacoesMenu : ICadastroProduto
     {
-        private readonly GerenciarProdutos _gerenciarProdutos;
+        private readonly IGerenciarProdutos _gerenciarProdutos;
         private static Produtos produto = new();
 
-        public OperacoesMenu(GerenciarProdutos gerenciarProdutos)
+        public OperacoesMenu(IGerenciarProdutos gerenciarProdutos)
         {
             _gerenciarProdutos = gerenciarProdutos;
         }
         public void CadastrarProduto(string NomedoProduto, string DescricaoDoProduto, ETipoDoProduto TipoDoProduto, double ValorProduto)
-        {            
+        {
             produto = new Produtos
             {
                 NomedoProduto = NomedoProduto,
