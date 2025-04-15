@@ -1,9 +1,10 @@
 using CadastroProdutos.Enums.TipoDoProduto;
 using CadastroProdutos.Models.Produtos;
+using CadastroProdutos.Interfaces;
 
 namespace CadastroProdutos.Services.GerenciadorProdutos
 {
-    public class GerenciarProdutos : TaxaProdutos
+    public class GerenciarProdutos : TaxaProdutos, IGerenciarProdutos
     {
         private readonly List<Produtos> _ListaDeProdutos;
 
@@ -12,53 +13,10 @@ namespace CadastroProdutos.Services.GerenciadorProdutos
             _ListaDeProdutos = new List<Produtos>();
         }
 
-        public override double TaxaSobTipoDeProduto(double ValorProduto, double ValorDaTaxa)
-        {
-            ValorProduto += (ValorProduto * ValorDaTaxa);
-            return ValorProduto;
-        }
-
         public void AdicionaProduto(Produtos produto)
         {
             _ListaDeProdutos.Add(produto);
             Console.WriteLine("Produto Cadastrado com Sucesso");
-        }
-
-        public void ListarProdutos()
-        {
-            if (_ListaDeProdutos.Count == 0)
-            {
-                Console.WriteLine("Não há produtos cadastrados.");
-                return;
-            }
-            Console.WriteLine("<=== Lista de Produtos Cadastrados ===>");
-            foreach (var produto in _ListaDeProdutos)
-            {
-                if (_ListaDeProdutos.Count == 0)
-                {
-                    Console.WriteLine("Não há produtos cadastrados.");
-                    return;
-                }
-                Console.WriteLine($"Código do Produto: {produto.CodigoDoProduto}");
-                Console.WriteLine($"Nome do Produto: {produto.NomedoProduto}");
-                Console.WriteLine($"Descrição do Produto: {produto.DescricaoDoProduto}");
-                Console.WriteLine($"Tipo do Produto: {produto.TipoDoProduto}");
-                Console.WriteLine($"Valor do Produto: {produto.ValorProduto:C}");
-                Console.WriteLine("<|=======================================================|>");
-            }
-        }
-
-        public void RemoverProdutos(string idProduto)
-        {
-            var produtoEncontrado = _ListaDeProdutos.FirstOrDefault(id => id.CodigoDoProduto.Equals(idProduto));
-            if (produtoEncontrado == null)
-            {
-                Console.WriteLine("Produto não encontrado pelo ID fornecido.");
-                return;
-            }
-
-            _ListaDeProdutos.Remove(produtoEncontrado);
-            Console.WriteLine("Produto removido com sucesso!");
         }
 
         public void AtualizarProdutos(string idProdutoAtualizar)
@@ -134,6 +92,50 @@ namespace CadastroProdutos.Services.GerenciadorProdutos
                 }
             }
         }
+
+        public void ListarProdutos()
+        {
+            if (_ListaDeProdutos.Count == 0)
+            {
+                Console.WriteLine("Não há produtos cadastrados.");
+                return;
+            }
+            Console.WriteLine("<=== Lista de Produtos Cadastrados ===>");
+            foreach (var produto in _ListaDeProdutos)
+            {
+                if (_ListaDeProdutos.Count == 0)
+                {
+                    Console.WriteLine("Não há produtos cadastrados.");
+                    return;
+                }
+                Console.WriteLine($"Código do Produto: {produto.CodigoDoProduto}");
+                Console.WriteLine($"Nome do Produto: {produto.NomedoProduto}");
+                Console.WriteLine($"Descrição do Produto: {produto.DescricaoDoProduto}");
+                Console.WriteLine($"Tipo do Produto: {produto.TipoDoProduto}");
+                Console.WriteLine($"Valor do Produto: {produto.ValorProduto:C}");
+                Console.WriteLine("<|=======================================================|>");
+            }
+        }
+
+        public void RemoverProdutos(string idProduto)
+        {
+            var produtoEncontrado = _ListaDeProdutos.FirstOrDefault(id => id.CodigoDoProduto.Equals(idProduto));
+            if (produtoEncontrado == null)
+            {
+                Console.WriteLine("Produto não encontrado pelo ID fornecido.");
+                return;
+            }
+
+            _ListaDeProdutos.Remove(produtoEncontrado);
+            Console.WriteLine("Produto removido com sucesso!");
+        }
+
+        public override double TaxaSobTipoDeProduto(double ValorProduto, double ValorDaTaxa)
+        {
+            ValorProduto += (ValorProduto * ValorDaTaxa);
+            return ValorProduto;
+        }
+
 
     }
 }
