@@ -1,5 +1,4 @@
-﻿using CadastroProdutos.Services.OperacoesMenu;
-using CadastroProdutos.Menu;
+﻿using CadastroProdutos.Menu;
 class Program
 {
     public static void Main()
